@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,7 +24,8 @@ import { TimelineComponent } from './components/movie/timeline/timeline.componen
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
+    RouterModule,
+    AppRoutingModule
   ],
   exports: [RouterModule],
   providers: [],
