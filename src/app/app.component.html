@@ -1,13 +1,11 @@
 <div>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">iFelt</a>
+    <a href="/home" class="navbar-brand">iFelt</a>
     <div class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a routerLink="/home" class="nav-link">Movies</a>
+        <a routerLink="/movies" class="nav-link">Movies</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/movies" class="nav-link">Search</a>
-      </li>
+      
     </div>
   </nav>
 
@@ -16,37 +14,4 @@
   </div>
 </div>
 
-<div class="main">
-  <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-8">
-    <h1 class="text-center">iFetl</h1>
-      <form class="">
-        <div class="form-group">
-          <label for="chooseMovie">Choose a <code>movie</code> or series</label>
-          <select class="form-control" id="chooseMovie">
-            <option>-</option>
-            <option>Lost in Translation</option>
-            <option>Cashback</option>
-            <option>A Single Man</option>
-            <option>Happy Go Lucky</option>
-            <option>Cinema Paradiso</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="chooseEmotion">How did you <code>felt</code>?</label>
-          <select class="form-control" id="chooseEmotion">
-            <option>-</option>
-            <option>Melancholic</option>
-            <option>Optimistic</option>
-            <option>Inspired</option>
-            <option>Concerned</option>
-            <option>Happy</option>
-          </select>
-        </div>
-        <button class="btn btn-block btn-classify" (click)="classifyEmotion()">Classify</button>
-      </form>   
-    </div>
-  </div> 
-</div>
-  
  
