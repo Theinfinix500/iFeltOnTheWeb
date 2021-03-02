@@ -9,4 +9,19 @@
 .btn-classify{
     color: white;;
     background-color:#e83e8c;
+} 
+
+/* .main{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 400px 30% 40%;
 }
+
+.redline{
+    border:1px solid red;
+}
+
+.btn-classify{
+    color: white;;
+    background-color:#e83e8c;
+} */

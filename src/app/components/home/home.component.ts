@@ -5,11 +5,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
 
+emotion = ''
+movie ='';
+choosenMovie='';
+choosenEmotion=''
+  
   constructor() { }
 
-  ngOnInit() {
+  classifyEmotion(choosenMovie:HTMLSelectElement){
+    this.emotion=this.choosenEmotion;
+    this.movie=choosenMovie.value;
   }
+
+
 
 }

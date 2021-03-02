@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { TimelineComponent } from './components/movie/timeline/timeline.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TimelineComponent } from './components/movie/timeline/timeline.componen
     HomeComponent,
     MovieComponent,
     MoviesComponent,
-    TimelineComponent
+    TimelineComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

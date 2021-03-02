@@ -1,33 +1,82 @@
-<div class="main">
+ <div class="main">
     <div class="row h-100 justify-content-center align-items-center">
       <div class="col-8">
       <h1 class="text-center">iFetl</h1>
-        <form class="">
+        <!-- <form class=""> -->
           <div class="form-group">
             <label for="chooseMovie">Choose a <code>movie</code> or series</label>
-            <select class="form-control" id="chooseMovie">
+            <!-- <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie"> -->
+              <select class="form-control" id="chooseMovie" #choosenMovie>
               <option>-</option>
-              <option>Lost in Translation</option>
-              <option>Cashback</option>
-              <option>A Single Man</option>
-              <option>Happy Go Lucky</option>
-              <option>Cinema Paradiso</option>
+              <option name="1">Lost in Translation</option>
+              <option name="2">Cashback</option>
+              <option name="3">A Single Man</option>
+              <option name="4">Happy Go Lucky</option>
+              <option name="5">Cinema Paradiso</option>
             </select>
           </div>
           <div class="form-group">
             <label for="chooseEmotion">How did you <code>felt</code>?</label>
-            <select class="form-control" id="chooseEmotion">
+            <select class="form-control" id="chooseEmotion" [(ngModel)]="choosenEmotion">
               <option>-</option>
-              <option>Melancholic</option>
-              <option>Optimistic</option>
-              <option>Inspired</option>
-              <option>Concerned</option>
-              <option>Happy</option>
+              <option name="1">Melancholic</option>
+              <option name="2">Optimistic</option>
+              <option name="3">Inspired</option>
+              <option name="4">Concerned</option>
+              <option name="5">Happy</option>
             </select>
           </div>
-          <button class="btn btn-block btn-classify" (click)="classifyEmotion()">Classify</button>
-        </form>   
+          <button class="btn btn-block btn-classify" (click)="classifyEmotion(choosenMovie)">Classify</button>
+        <!-- </form>    -->
+        I choose {{movie}}
+        <br>
+        I felt {{choosenEmotion}}
       </div>
     </div> 
+
+
   </div>
+
+
+     <!-- <div class="main">
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div>
+
+      <h1 class="text-center">iFetl</h1>
+      <form class="">
+        <div class="form-group">
+          <label for="chooseMovie">Choose a <code>movie</code> or series</label>
+          <select class="form-control" id="chooseMovie">
+            <option>-</option>
+            <option>Lost in Translation</option>
+            <option>Cashback</option>
+            <option>A Single Man</option>
+            <option>Happy Go Lucky</option>
+            <option>Cinema Paradiso</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="chooseEmotion">How did you <code>felt</code>?</label>
+          <select class="form-control" id="chooseEmotion">
+            <option>-</option>
+            <option>Melancholic</option>
+            <option>Optimistic</option>
+            <option>Inspired</option>
+            <option>Concerned</option>
+            <option>Happy</option>
+          </select>
+        </div>
+        <button class="btn btn-block btn-classify" (click)="classifyEmotion()">Classify</button>
+      </form>   
+
+     </div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+    </div> -->
+    
     
