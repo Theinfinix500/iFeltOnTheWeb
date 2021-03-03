@@ -8,7 +8,7 @@
           <div class="form-group">
             <label for="chooseMovie">Choose a <code>movie</code> or series</label>
             <!-- <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie"> -->
-              <select class="form-control" id="chooseMovie" #choosenMovie>
+              <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie">
               <option>-</option>
               <option name="1">Lost in Translation</option>
               <option name="2">Cashback</option>
@@ -19,20 +19,20 @@
           </div>
           <div class="form-group">
             <label for="chooseEmotion">How did you <code>felt</code>?</label>
-            <select class="form-control" id="chooseEmotion" [(ngModel)]="choosenEmotion">
+            <select class="form-control" id="chooseEmotion" #choosenEmotion>
               <option>-</option>
-              <option name="1">Melancholic</option>
-              <option name="2">Optimistic</option>
-              <option name="3">Inspired</option>
-              <option name="4">Concerned</option>
-              <option name="5">Happy</option>
+              <option name="6">Melancholic</option>
+              <option name="7">Optimistic</option>
+              <option name="8">Inspired</option>
+              <option name="9">Concerned</option>
+              <option name="10">Happy</option>
             </select>
           </div>
-          <button class="btn btn-block btn-classify" (click)="classifyEmotion(choosenMovie)">Classify</button>
+          <button class="btn btn-block btn-classify" (click)="classifyEmotion(choosenEmotion)">Classify</button>
         <!-- </form>    -->
-        I choose {{movie}}
+        I choose {{choosenMovie}}
         <br>
-        I felt {{choosenEmotion}}
+        I felt {{emotion}}
       </div>
     </div> 
 

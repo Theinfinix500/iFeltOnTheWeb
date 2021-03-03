@@ -14,9 +14,10 @@ choosenEmotion=''
   
   constructor() { }
 
-  classifyEmotion(choosenMovie:HTMLSelectElement){
-    this.emotion=this.choosenEmotion;
-    this.movie=choosenMovie.value;
+  classifyEmotion(chooseEmotion:HTMLSelectElement){
+    console.log(chooseEmotion)
+    this.movie=this.choosenMovie;
+    this.emotion=chooseEmotion.value;
   }
 
 
