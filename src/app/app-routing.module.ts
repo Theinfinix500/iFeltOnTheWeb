@@ -6,18 +6,11 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { TimelineComponent } from './components/movie/timeline/timeline.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '', component: HomeComponent },
+  { path: '', pathMatch: 'full' , component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'movies', component: MoviesComponent,
-    children: [
-      { path: ':id', component: MovieComponent, 
-        children: [
-          { path: 'timeline', component: TimelineComponent }
-        ]
-      },
-    ]
-  }
+  { path: 'movies', component: MoviesComponent},
+  { path: 'movies/:id', component: MovieComponent} ,
+  { path: 'movies/:id/timeline', component: TimelineComponent }
 ];
 
 @NgModule({
