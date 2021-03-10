@@ -26,6 +26,9 @@ movies: Movie [] = [
   {id:4, title:"Cinema Paradiso"}
 ]
 
+get diagnostic() { return JSON.stringify(this.movies); }
+
+get diagnostic2() { return JSON.stringify(this.emotions); }
 
    classifyEmotion(){
     
