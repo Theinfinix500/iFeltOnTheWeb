@@ -6,18 +6,18 @@
 <form  #classifyMovies="ngForm">
 <div>
   <label for="chooseMovie" name="movie">Choose a <code>movie</code> or series</label>
-    <select class="form-control" [(ngModel)]="movie" name="movie">
-    <option [value]="movie" *ngFor="let movie of movies">{{movie.title}}</option>
+    <select class="form-control" [ngModel]="movie" name="movie">
+    <option [value]="movie.title" *ngFor="let movie of movies">{{movie.title}}</option>
   </select>
   </div>
 <div>
   <label for="chooseEmotion" name="emotion">How did you <code>felt</code>?</label>
-  <select class="form-control" [(ngModel)]="emotion" name="emotion">
-    <option [value]="emotion" *ngFor="let emotion of emotions">{{emotion.name}}</option>
+  <select class="form-control" [ngModel]="emotion" name="emotion">
+    <option [value]="emotion.name" *ngFor="let emotion of emotions">{{emotion.name}}</option>
   </select>
 </div>
 <br>
-<button class="btn btn-block btn-classify" (click)="classifyEmotion()">Classify</button>
+<button class="btn btn-block btn-classify" (click)="classifyEmotion(classifyMovies)">Classify Movie</button>
 </form>
 <br><br><br>
 
@@ -27,7 +27,7 @@
   <input type="text" class="form-control" id="movieTitle" required [ngModel]="movies.title" name="movietitle">
   </div>
 <br>
-<button class="btn btn-block btn-classify" type="submit">Classify</button>
+<button class="btn btn-block btn-classify" type="submit">Create Movie</button>
 </form>
 </div>
 
