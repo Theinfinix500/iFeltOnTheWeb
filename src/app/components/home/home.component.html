@@ -2,39 +2,45 @@
 <div class="container">
   <div class="row h-100 align-items-center">
     <div class="col-2"></div>
-<div class="col-8">
-<form  #classifyMovies="ngForm">
-<div>
-  <label for="chooseMovie" name="movie">Choose a <code>movie</code> or series</label>
-    <select class="form-control" [ngModel]="movie" name="movie">
-    <option [value]="movie.title" *ngFor="let movie of movies">{{movie.title}}</option>
-  </select>
-  </div>
-<div>
-  <label for="chooseEmotion" name="emotion">How did you <code>felt</code>?</label>
-  <select class="form-control" [ngModel]="emotion" name="emotion">
-    <option [value]="emotion.name" *ngFor="let emotion of emotions">{{emotion.name}}</option>
-  </select>
-</div>
-<br>
-<button class="btn btn-block btn-classify" (click)="classifyEmotion(classifyMovies)">Classify Movie</button>
-</form>
-<br><br><br>
+      <div class="col-8">
+      <form  #classifyMovies="ngForm" (submit)=classifyEmotion(classifyMovies)>
+      <div>
+        <label for="chooseMovie" name="movie">Choose a <code>movie</code> or series</label>
+          <select class="form-control" [(ngModel)]=movie name="movie">
 
-<form  #createMovieForm="ngForm" (submit)="createMovie(createMovieForm)">
-<div>
-  <label for="createMovie">Please <code>create</code> a movie, if it doesn't exist</label>
-  <input type="text" class="form-control" id="movieTitle" required [ngModel]="movies.title" name="movietitle">
-  </div>
-<br>
-<button class="btn btn-block btn-classify" type="submit">Create Movie</button>
-</form>
-</div>
+          <option [value]="movie.title" *ngFor="let movie of movies">{{movie.title}}</option>
+        </select>
+        </div>
+      <div>
+        <label for="chooseEmotion" name="emotion">How did you <code>felt</code>?</label>
+        <select class="form-control" ngModel #emotion="ngModel" name="emotion">
+          <option [value]="emotion.name" *ngFor="let emotion of emotions">{{emotion.name}}</option>
+        </select>
+      </div>
+      <br>
+      <button class="btn btn-block btn-classify" type="submit">Classify Movie</button>
+      </form>
+      <br><br><br>
 
+      <form  #createMovieForm="ngForm" (submit)="createMovie(createMovieForm)">
+        <div *ngIf="movies.length == 0; else elseBlock"> 
+          <label for="createMovie">Please <code>create</code> a movie</label></div>
+        <ng-template #elseBlock><label for="createMovie">Please <code>create</code> another a movie</label></ng-template>
+
+        <input type="text" class="form-control" id="movieTitle" ngModel #movieTitle="ngModel" name="movieTitle" required>
+        
+      <br>
+      <button class="btn btn-block btn-classify" type="submit">Create Movie</button>
+      </form>
+      </div>
 <div class="col-2"></div>
 </div>
-</div>
 
-{{diagnostic}}   
+<div *ngIf="movies.length == 0; else whenClassifies">  
+ </div>
+ 
+  <ng-template #whenClassifies>I've just classified added {{movie.title}} </ng-template> 
+
+<!-- {{diagnostic}}   
 <br><br>
-{{diagnostic2}}   
+{{diagnostic2}}    -->
