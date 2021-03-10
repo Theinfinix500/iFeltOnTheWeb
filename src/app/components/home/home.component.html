@@ -17,17 +17,17 @@
   </select>
 </div>
 <br>
-<button class="btn btn-block btn-classify" (click)="classifyEmotion(ngValue)">Classify</button>
+<button class="btn btn-block btn-classify" (click)="classifyEmotion()">Classify</button>
 </form>
 <br><br><br>
 
-<form  #createMovie="ngForm">
+<form  #createMovieForm="ngForm" (submit)="createMovie(createMovieForm)">
 <div>
   <label for="createMovie">Please <code>create</code> a movie, if it doesn't exist</label>
-  <input type="text" class="form-control" id="movieTitle" required [(ngModel)]="movies.title" name="movietitle">
+  <input type="text" class="form-control" id="movieTitle" required [ngModel]="movies.title" name="movietitle">
   </div>
 <br>
-<button class="btn btn-block btn-classify" (click)="createMovie()">Classify</button>
+<button class="btn btn-block btn-classify" type="submit">Classify</button>
 </form>
 </div>
 

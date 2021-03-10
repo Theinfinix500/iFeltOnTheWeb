@@ -1,4 +1,4 @@
-export class Movie {
-    public id: number;
-    public title: string;
+export interface Movie {
+  id: string;
+  title: string;
 }

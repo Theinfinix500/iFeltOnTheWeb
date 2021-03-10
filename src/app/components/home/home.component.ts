@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgForm } from "@angular/forms";
+import { Subject } from "rxjs";
 import {Movie} from '../models/movie.model'
 
 @Component({
@@ -7,7 +8,9 @@ import {Movie} from '../models/movie.model'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent  {
+export class HomeComponent implements OnInit {
+  movie:Movie;
+  private moviesUpdated = new Subject<Movie[]>();
 
 emotions =[
   {name:"happy"},
@@ -18,22 +21,38 @@ emotions =[
 ]
 
 
+
 movies: Movie [] = [
-  {id:1, title:"Lost in Translation"},
-  {id:2, title:"Cashback"},
-  {id:3, title:"A Single Man"},
-  {id:4, title:"Happy Go Lucky"},
-  {id:4, title:"Cinema Paradiso"}
+  {id:'1', title:"Lost in Translation"},
+  {id:'2', title:"Cashback"},
+  {id:'3', title:"A Single Man"},
+  {id:'4', title:"Happy Go Lucky"},
+  {id:'5', title:"Cinema Paradiso"}
 ]
 
-get diagnostic() { return JSON.stringify(this.movies); }
+ngOnInit(){
+this.getMoviesUpdateListener()
+}
 
-get diagnostic2() { return JSON.stringify(this.emotions); }
+createMovie(form: NgForm) {
+    this.movie = { id: null, title: form.value.movietitle};
+    this.movies.push(this.movie)
+    this.moviesUpdated.next(this.movies)   
+  }
 
-   classifyEmotion(){
-    
+  getMoviesUpdateListener() {
+    return this.moviesUpdated.asObservable();
+  }
+
+  classifyEmotion(form:NgForm){
+    console.log(form.value)
   }
 
 
 
+  // get diagnostic() { return JSON.stringify(this.movies); }
+
+  // get diagnostic2() { return JSON.stringify(this.emotions); }
+
+  
 }
