@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'iFeltOnTheWeb';
 
 
-classifyEmotion(){
-  alert("cheguei")
-}
-
 }
