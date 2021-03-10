@@ -7,17 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent  {
 
-emotion = ''
-movie ='';
-choosenMovie='';
-choosenEmotion=''
-  
-  constructor() { }
+emotions =[
+  {name:"happy"},
+  {name:"Melancholic"},
+  {name:"Optimistic"},
+  {name:"Inspired"},
+  {name:"Concerned"}
+]
 
-  classifyEmotion(chooseEmotion:HTMLSelectElement){
-    console.log(chooseEmotion)
-    this.movie=this.choosenMovie;
-    this.emotion=chooseEmotion.value;
+
+movies = [
+  {title:"Lost in Translation"},
+  {title:"Cashback"},
+  {title:"A Single Man"},
+  {title:"Happy Go Lucky"},
+  {title:"Cinema Paradiso"}
+]
+ 
+  constructor() {
+
+   }
+
+
+
+   classifyEmotion(){
+    
   }
 
 

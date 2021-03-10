@@ -1,24 +1,21 @@
-          <div class="form-group">
+          <div class="container">
+            <div class="row h-100 align-items-center">
+              <div class="col-2"></div>
+              <div class="col-8">
+          <div>
             <label for="chooseMovie">Choose a <code>movie</code> or series</label>
-            <!-- <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie"> -->
-              <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie">
-              <option>-</option>
-              <option name="1">Lost in Translation</option>
-              <option name="2">Cashback</option>
-          </div>
-          <div class="form-group">
+              <select  class="form-control">
+              <option [ngValue]="movie" *ngFor="let movie of movies">{{movie.title}}</option>
+            </select>
+            </div>
+          <div>
             <label for="chooseEmotion">How did you <code>felt</code>?</label>
-            <select class="form-control" id="chooseEmotion" #choosenEmotion>
-              <option>-</option>
-              <option name="6">Melancholic</option>
-              <option name="7">Optimistic</option>
-              <option name="8">Inspired</option>
-              <option name="9">Concerned</option>
-              <option name="10">Happy</option>
+            <select class="form-control">
+              <option [ngValue]="emotion" *ngFor="let emotion of emotions">{{emotion.name}}</option>
             </select>
           </div>
-          <button class="btn btn-block btn-classify" (click)="classifyEmotion(choosenEmotion)">Classify</button>
-        <!-- </form>    -->
-        I choose {{choosenMovie}}
-        <br>
-        I felt {{emotion}}
+          <button class="btn btn-block btn-classify" (click)="classifyEmotion()">Classify</button>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
