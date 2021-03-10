@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Movie} from '../models/movie.model'
 
 @Component({
   selector: 'app-home',
@@ -17,21 +18,17 @@ emotions =[
 ]
 
 
-movies = [
-  {title:"Lost in Translation"},
-  {title:"Cashback"},
-  {title:"A Single Man"},
-  {title:"Happy Go Lucky"},
-  {title:"Cinema Paradiso"}
+movies: Movie [] = [
+  {id:1, title:"Lost in Translation"},
+  {id:2, title:"Cashback"},
+  {id:3, title:"A Single Man"},
+  {id:4, title:"Happy Go Lucky"},
+  {id:4, title:"Cinema Paradiso"}
 ]
- 
-  constructor() {
-   }
 
 
-
-   classifyEmotion(values){
-    console.log('ngValue',values)
+   classifyEmotion(){
+    
   }
 
 
