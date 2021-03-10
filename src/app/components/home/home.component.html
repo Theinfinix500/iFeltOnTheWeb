@@ -1,0 +1,38 @@
+<br><br><br>
+<div class="container">
+  <div class="row h-100 align-items-center">
+    <div class="col-2"></div>
+<div class="col-8">
+<form  #classifyMovies="ngForm">
+<div>
+  <label for="chooseMovie" name="movie">Choose a <code>movie</code> or series</label>
+    <select class="form-control" [(ngModel)]="movie" name="movie">
+    <option [value]="movie" *ngFor="let movie of movies">{{movie.title}}</option>
+  </select>
+  </div>
+<div>
+  <label for="chooseEmotion" name="emotion">How did you <code>felt</code>?</label>
+  <select class="form-control" [(ngModel)]="emotion" name="emotion">
+    <option [value]="emotion" *ngFor="let emotion of emotions">{{emotion.name}}</option>
+  </select>
+</div>
+<br>
+<button class="btn btn-block btn-classify" (click)="classifyEmotion(ngValue)">Classify</button>
+</form>
+<br><br><br>
+
+<form  #createMovie="ngForm">
+<div>
+  <label for="createMovie">Please <code>create</code> a movie, if it doesn't exist</label>
+  <input type="text" class="form-control" id="movieTitle" required [(ngModel)]="movies.title" name="movietitle">
+  </div>
+<br>
+<button class="btn btn-block btn-classify" (click)="createMovie()">Classify</button>
+</form>
+</div>
+
+<div class="col-2"></div>
+</div>
+</div>
+
+{{diagnostic}}   
