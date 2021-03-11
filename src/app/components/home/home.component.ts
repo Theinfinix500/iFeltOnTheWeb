@@ -30,11 +30,11 @@ emotions =[
 ]
 
 movies: Movie [] = [
-  // {id:'1', title:"Lost in Translation"},
-  // {id:'2', title:"Cashback"},
-  // {id:'3', title:"A Single Man"},
-  // {id:'4', title:"Happy Go Lucky"},
-  // {id:'5', title:"Cinema Paradiso"}
+  {id:1, title:"Lost in Translation"},
+  {id:2, title:"Cashback"},
+  {id:3, title:"A Single Man"},
+  {id:4, title:"Happy Go Lucky"},
+  {id:5, title:"Cinema Paradiso"}
 ]
 
 ngOnInit(){
