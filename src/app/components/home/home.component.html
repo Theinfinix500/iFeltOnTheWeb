@@ -1,24 +1,46 @@
+          
+          <br>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-2"></div>
+            <div class="col-8">
+            
+          <form #classifyMovieForm="ngForm" (submit)=classifyEmotion(classifyMovieForm)>
           <div class="form-group">
             <label for="chooseMovie">Choose a <code>movie</code> or series</label>
-            <!-- <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie"> -->
-              <select class="form-control" id="chooseMovie" [(ngModel)]="choosenMovie">
-              <option>-</option>
-              <option name="1">Lost in Translation</option>
-              <option name="2">Cashback</option>
+              <select class="form-control" id="chooseMovie" ngModel #movie="ngModel" name="movie">
+              <option *ngFor="let movie of movies">{{movie.title}}</option>
+           
+              </select>
           </div>
           <div class="form-group">
             <label for="chooseEmotion">How did you <code>felt</code>?</label>
-            <select class="form-control" id="chooseEmotion" #choosenEmotion>
-              <option>-</option>
-              <option name="6">Melancholic</option>
-              <option name="7">Optimistic</option>
-              <option name="8">Inspired</option>
-              <option name="9">Concerned</option>
-              <option name="10">Happy</option>
+            <select class="form-control" id="chooseEmotion" ngModel #emotion="ngModel" name="emotion" >
+              <option  *ngFor="let emotion of emotions">{{emotion.name}}</option>
+              
             </select>
           </div>
-          <button class="btn btn-block btn-classify" (click)="classifyEmotion(choosenEmotion)">Classify</button>
-        <!-- </form>    -->
-        I choose {{choosenMovie}}
+          <button class="btn btn-block btn-classify" type="submit">Classify</button>
+        </form>
+        <br><br><br>
+
+        <form #createMovieForm="ngForm" (submit)="createMovie(createMovieForm)">
+
+          <div *ngIf="movies.length == 0; else elseBlock">
+          <label for="createMovie"><code>Create</code> a movie</label>
+         </div>
+         
+         <ng-template #elseBlock>
+          <label for="createMovie">Create <code>another</code> a movie</label>
+         </ng-template>
+
+        <input type="text" id="createMovie" class="form-control" ngModel #movieTitle="ngModel" name="movieTitle">
         <br>
-        I felt {{emotion}}
+        <button class="btn btn-block btn-classify" type="submit">Create Movie</button>
+      </form>
+      </div>
+        <div class="col-2"></div>
+      </div>
+    
+      </div>

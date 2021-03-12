@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms'
+import {Movie} from '../../models/movie.model'
 
 @Component({
   selector: 'app-home',
@@ -7,19 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent  {
 
-emotion = ''
-movie ='';
-choosenMovie='';
-choosenEmotion=''
-  
-  constructor() { }
+  emotions = [
+    { name: "Happy" },
+    { name: "Melancholic" },
+    { name: "Optimistic" },
+    { name: "Inspired" },
+    { name: "Concerned" },
+  ];
 
-  classifyEmotion(chooseEmotion:HTMLSelectElement){
-    console.log(chooseEmotion)
-    this.movie=this.choosenMovie;
-    this.emotion=chooseEmotion.value;
+  movies : Movie[] = [
+
+  ];
+
+
+  classifyEmotion(form: NgForm){
+  console.log(form.value)
   }
 
+  createMovie(form: NgForm){
+    this.movies.push({id:10,title:form.value.movieTitle})
+    console.log(form.value)
+  }
 
 
 }
