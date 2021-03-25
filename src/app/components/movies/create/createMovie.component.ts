@@ -10,8 +10,7 @@ import { Movie } from './../../models/movie.model';
 @Component({
   selector: 'app-createMovie',
   templateUrl: './createMovie.component.html',
-  styleUrls: ['./createMovie.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./createMovie.component.css']
 })
 export class CreateMovieComponent{
 
