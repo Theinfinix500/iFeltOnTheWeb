@@ -1,7 +1,7 @@
 import { Router} from '@angular/router';
 import { MoviesService } from './../../movie.service';
 import { NgForm } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ChangeDetectionStrategy} from '@angular/core';
 
 
 import { Movie } from './../../models/movie.model';
@@ -10,13 +10,15 @@ import { Movie } from './../../models/movie.model';
 @Component({
   selector: 'app-createMovie',
   templateUrl: './createMovie.component.html',
-  styleUrls: ['./createMovie.component.css']
+  styleUrls: ['./createMovie.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateMovieComponent{
 
    constructor(public moviesService:MoviesService, private router:Router) { }
 
   onMovieCreate(form:NgForm){
+    // console.log(form.value)
     
      const movie:Movie = {
       title:form.value.title,
@@ -31,8 +33,10 @@ export class CreateMovieComponent{
           }
       }
 
+    
   this.moviesService.addMovie(movie)
-  this.router.navigate(['/home'])
+  // console.log("onMovieCreate",this.moviesService.addMovie(movie))
+  // this.router.navigate(['/home'])
 
 }
 

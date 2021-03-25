@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core"
 import {Movie} from "./models/movie.model"
 import {Emotions} from "./models/emotions"
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable ({providedIn:"root"})
 
@@ -9,7 +9,7 @@ export class MoviesService{
 
 
     private movies:Movie[] = [];
-    private moviesUpdated = new Subject<Movie[]>();
+    private moviesUpdated = new BehaviorSubject<Movie[]>([]);
 
 
     emotions:Emotions[]=[
@@ -25,7 +25,6 @@ export class MoviesService{
     getMovies(){
       return ([...this.movies])
     }
-
 
     getEmotions() {
       return this.emotions;
