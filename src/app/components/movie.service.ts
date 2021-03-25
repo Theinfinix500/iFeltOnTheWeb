@@ -32,6 +32,7 @@ export class MoviesService{
 
     addMovie(movie:Movie){
       this.movies.push(movie)
+      // console.log('service',this.movies[0].title)
       this.moviesUpdated.next([...this.movies]);
    }
 

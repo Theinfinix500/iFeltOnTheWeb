@@ -35,7 +35,7 @@ export class CreateMovieComponent{
     
   this.moviesService.addMovie(movie)
   // console.log("onMovieCreate",this.moviesService.addMovie(movie))
-  // this.router.navigate(['/home'])
+  this.router.navigate(['/home'])
 
 }
 

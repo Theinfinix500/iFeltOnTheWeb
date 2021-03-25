@@ -7,7 +7,7 @@
       <div>
         <label for="chooseMovie" name="movie">Choose a <code>movie</code> or series</label>
           <select class="form-control" [(ngModel)]=movie name="movie">
-          <option [value]="movie.title" *ngFor="let movie movies">{{movie.title}}</option>
+          <option [value]="movie.title" *ngFor="let movie of movies">{{movie.title}}</option>
         </select>
         </div>
       <div>

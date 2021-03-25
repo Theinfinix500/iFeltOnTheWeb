@@ -29,9 +29,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe((moviesReturned: Movie[]) => {
         // debugger;
         this.movies = moviesReturned;
-        console.log(this.movies);
+        // console.log('subscriptor HOME',this.movies)
       });
-
+      
     this.emotions = this.movieService.getEmotions();
   }
 
