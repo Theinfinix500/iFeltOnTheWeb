@@ -27,7 +27,7 @@ emotions:Emotions[]=[];
   ngOnInit(){
 
   this.movies = this.movieService.getMovies();
-  console.log(this.movies)
+  // console.log(this.movies)
   
   // this.moviesUpdated =this.movieService.getMoviesUpdateListener().subscribe(
   //   (moviesReturned:Movie[]) => {

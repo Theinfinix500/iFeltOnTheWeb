@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core"
 import {Movie} from "./models/movie.model"
 import {Emotions} from "./models/emotions"
 import { Subject } from "rxjs";
-import { Router} from '@angular/router';
 
 @Injectable ({providedIn:"root"})
 
@@ -24,7 +23,6 @@ export class MoviesService{
     constructor() { }
 
     getMovies(){
-      //create a copy of the movire arryay, but it's a copy 
       return ([...this.movies])
     }
 

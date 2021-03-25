@@ -1,5 +1,5 @@
 import { CreateMovieComponent } from './components/movies/create/createMovie.component';
-import { MovieComponent } from './components/movies/movie.component';
+import { MovieComponent } from './components/movies/list/movie.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
