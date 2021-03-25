@@ -1,0 +1,35 @@
+<div class="container margin-top">
+    <h1>Add a  <code> Movie</code></h1>
+<form class="row g-3" #createMovieForm="ngForm" (submit)=onMovieCreate(createMovieForm)>
+    <div class="col-sm-6">
+      <label class="">Title</label>
+      <input class="form-control form-control-lg" type="text" placeholder=""  name="title"  ngModel #title="ngModel"aria-label=".form-control-lg example">
+      <div class="mb-3">
+        <label class="form-label">Poster file</label>
+        <input class="form-control form-control-lg" id="formFileLg" type="file">
+      </div>
+      <label class="">Directed by</label>
+      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #direction="ngModel" name="direction"
+      aria-label=".form-control-lg example">
+      <label class="visually-hidden">Year</label>
+      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #year="ngModel" name="year"
+      aria-label=".form-control-lg example">
+    </div>
+    <div class="col-sm-6">
+      <label class="visually-hidden">Country</label>
+      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #country="ngModel" name="country" aria-label=".form-control-lg example">
+      <label class="visually-hidden">Duration</label>
+      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #duration="ngModel" name="duration" aria-label=".form-control-lg example">
+      <label class="visually-hidden">Cast</label>
+      <label class="visually-hidden">Name</label>
+      <input class="form-control form-control-lg" type="text" placeholder="" ngModel #act1="ngModel" name="name1" aria-label=".form-control-lg example">
+      <label class="visually-hidden">Name</label>
+      <input class="form-control form-control-lg" type="text" placeholder="" ngModel #act2="ngModel" name="name2" aria-label=".form-control-lg example">
+      
+      <code>Add More</code>
+   </div>
+
+   <button class="btn btn-primary maincolor">Add</button>
+  </form>
+
+</div>

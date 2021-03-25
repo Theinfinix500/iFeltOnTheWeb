@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { Subject } from "rxjs";
+
 import {Movie} from '../models/movie.model'
-import {MovieEmotions} from '../models/movieEmotions.model'
+import {Emotions} from '../models/emotions'
+
+import { MoviesService } from './../movie.service';
+
+import {Subscription} from 'rxjs'
 
 @Component({
   selector: 'app-home',
@@ -10,59 +14,38 @@ import {MovieEmotions} from '../models/movieEmotions.model'
   styleUrls: ['./home.component.css']
 })
 
-
 export class HomeComponent implements OnInit {
   
+moviesUpdated:Subscription;
+movies:Movie[]=[]; 
+emotions:Emotions[]=[];
+
+ constructor(public movieService: MoviesService){
+  }
   
-  n=0;
-  movie:Movie;
-  movieEmotion:MovieEmotions;
-  movieEmotions:MovieEmotions[] = [];
-  private moviesUpdated = new Subject<Movie[]>();
-  private movieEmotionsUpdated = new Subject<MovieEmotions[]>();
 
-emotions =[
-  {name:"happy"},
-  {name:"Melancholic"},
-  {name:"Optimistic"},
-  {name:"Inspired"},
-  {name:"Concerned"}
-]
+  ngOnInit(){
 
-movies: Movie [] = [
-  {id:1, title:"Lost in Translation"},
-  {id:2, title:"Cashback"},
-  {id:3, title:"A Single Man"},
-  {id:4, title:"Happy Go Lucky"},
-  {id:5, title:"Cinema Paradiso"}
-]
-
-ngOnInit(){
-  this.getMoviesUpdateListener().subscribe();
-  this.getMoviesEmotionUpdateListener().subscribe(data => {
-    console.log('data', data)
-  });
+  this.movies = this.movieService.getMovies();
+  console.log(this.movies)
+  
+  // this.moviesUpdated =this.movieService.getMoviesUpdateListener().subscribe(
+  //   (moviesReturned:Movie[]) => {
+  //     this.movies=moviesReturned;
+  //     console.log(this.movies)
+  //   }
+  // );
+  
+  this.emotions =  this.movieService.getEmotions();
 }
 
-createMovie(form: NgForm) {
-    this.movie = {id:this.n,title: form.value.movieTitle};
-    this.movies.push(this.movie)
-    this.moviesUpdated.next(this.movies)   
-    this.n++;
-  }
 
-  getMoviesUpdateListener() {
-    return this.moviesUpdated.asObservable();
-  }
 
-  getMoviesEmotionUpdateListener() {
-    return this.movieEmotionsUpdated.asObservable();
-  }
+ 
 
   classifyEmotion(form:NgForm){
-    this.movieEmotion = {movie:form.value.movie, emotion:form.value.emotion};
-    this.movieEmotions.push(this.movieEmotion)
-    this.movieEmotionsUpdated.next(this.movieEmotions)
+    
+
   }
 
 

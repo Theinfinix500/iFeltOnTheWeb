@@ -1,4 +1,5 @@
 <br><br><br>
+
 <div class="container">
   <div class="row h-100 align-items-center">
     <div class="col-2"></div>
@@ -14,7 +15,7 @@
       <div>
         <label for="chooseEmotion" name="emotion">How did you <code>felt</code>?</label>
         <select class="form-control" ngModel #emotion="ngModel" name="emotion">
-          <option [value]="emotion.name" *ngFor="let emotion of emotions">{{emotion.name}}</option>
+          <option [value]="emotion.emotion" *ngFor="let emotion of emotions">{{emotion.emotion}}</option>
         </select>
       </div>
       <br>

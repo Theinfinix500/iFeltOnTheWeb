@@ -1,8 +1,12 @@
 import {Movie} from './movie.model'
 
 export interface MovieEmotions {
-    movie:Movie,
-    emotion:string
+  movie:Movie  
+  emotion:
+  {
+    emotion1:string,
+    emotion2:string
+  }
   };
   
   
