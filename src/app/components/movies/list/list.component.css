@@ -1,0 +1,25 @@
+.submenu{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.submenu a {
+    color:#e83e8c;
+}
+
+.pinkbox{
+    border:1px solid #e83e8c;
+}
+
+.maincolor{
+   background-color: #e83e8c; 
+   border: #e83e8c;
+}
+
+.imgFit{
+    width: 100%;
+}
+
+.transparentCard{
+    border: none;
+}

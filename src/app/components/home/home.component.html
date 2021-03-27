@@ -14,24 +14,15 @@
       <div>
         <label for="chooseEmotion" name="emotion">How did you <code>felt</code>?</label>
         <select class="form-control" ngModel #emotion="ngModel" name="emotion">
-          <option [value]="emotion.name" *ngFor="let emotion of emotions">{{emotion.name}}</option>
+          <option [value]="emotion.emotion" *ngFor="let emotion of emotions">{{emotion.emotion}}</option>
         </select>
       </div>
       <br>
-      <button class="btn btn-block btn-classify" type="submit">Classify Movie</button>
+      <button class="btn btn-block btn-classify" type="submit" routerLink="">Classify Movie</button>
       </form>
       <br><br><br>
 
-      <form  #createMovieForm="ngForm" (submit)="createMovie(createMovieForm)">
-        <div *ngIf="movies.length == 0; else elseBlock"> 
-          <label for="createMovie">Please <code>create</code> a movie</label></div>
-        <ng-template #elseBlock><label for="createMovie">Please <code>create</code> another a movie</label></ng-template>
-
-        <input type="text" class="form-control" id="movieTitle" ngModel #movieTitle="ngModel" name="movieTitle" required>
-        
-      <br>
-      <button class="btn btn-block btn-classify" type="submit">Create Movie</button>
-      </form>
+     
       </div>
 <div class="col-2"></div>
 </div>
@@ -39,8 +30,4 @@
 <div *ngIf="movies.length == 0; else whenClassifies">  
  </div>
  
-  <!-- <ng-template #whenClassifies>I've just classified added {{movie.title}} </ng-template>  -->
-
-<!-- {{diagnostic}}   
-<br><br>
-{{diagnostic2}}    -->
+ <router-outlet></router-outlet>
