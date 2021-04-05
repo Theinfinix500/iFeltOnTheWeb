@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.movies = moviesReturned;
         // console.log('subscriptor HOME',this.movies)
       });
-      
+
     this.emotions = this.movieService.getEmotions();
   }
 
