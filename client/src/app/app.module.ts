@@ -1,14 +1,14 @@
-import { MoviesService } from './components/movie.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ChangeDetectionStrategy } from '@angular/core';
-import {FormsModule} from '@angular/forms'
-import { AppRoutingModule } from './app-routing.module';
+import { MoviesService } from "./components/movie.service";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule, ChangeDetectionStrategy } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { AppRoutingModule } from "./app-routing.module";
 
-import { AppComponent } from './app.component';
-import {HomeComponent} from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { MovieComponent } from './components/movies/list/movie.component';
-import { CreateMovieComponent } from './components/movies/create/createMovie.component'
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./components/home/home.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { MovieComponent } from "./components/movies/list/movie.component";
+import { CreateMovieComponent } from "./components/movies/create/createMovie.component";
 
 @NgModule({
   declarations: [
@@ -16,14 +16,10 @@ import { CreateMovieComponent } from './components/movies/create/createMovie.com
     HomeComponent,
     HeaderComponent,
     MovieComponent,
-    CreateMovieComponent
+    CreateMovieComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

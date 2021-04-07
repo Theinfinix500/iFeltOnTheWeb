@@ -13,5 +13,12 @@
         "statusBar.foreground": "#15202b",
         "titleBar.activeForeground": "#15202b",
         "titleBar.inactiveForeground": "#15202b99"
+    },
+    "editor.fontFamily": "Menlo, Monaco, 'Roboto Slab', 'Courier New', monospace",
+    "editor.cursorStyle": "line-thin",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.exclude": {
+        ".editorconfig": true,
+        ".vscode": true
     }
 }
