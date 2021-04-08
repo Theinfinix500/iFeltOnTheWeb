@@ -4,7 +4,6 @@ import { Movie } from "../models/movie.model";
 import { Emotions } from "../models/emotions";
 
 import { MoviesService } from "./../movie.service";
-import { AlertService } from "../_alert/alert.service";
 
 @Component({
   selector: "app-header",
@@ -16,15 +15,7 @@ export class HeaderComponent implements OnInit {
   movies: Movie[] = [];
   emotions: Emotions[] = [];
 
-  constructor(
-    public movieService: MoviesService,
-    protected alertService: AlertService
-  ) {}
-
-  options = {
-    autoClose: true,
-    keepAfterRouteChange: false,
-  };
+  constructor(public movieService: MoviesService) {}
 
   ngOnInit() {
     // this.movies = this.movieService.getMovies();

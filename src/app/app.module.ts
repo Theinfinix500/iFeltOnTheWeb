@@ -3,7 +3,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ChangeDetectionStrategy } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
-import { AlertModule } from "./components/_alert/alert.module";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -19,7 +18,7 @@ import { CreateMovieComponent } from "./components/movies/create/createMovie.com
     MovieComponent,
     CreateMovieComponent,
   ],
-  imports: [BrowserModule, FormsModule, AlertModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
