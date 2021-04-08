@@ -1,0 +1,12 @@
+.messages {
+  padding: 5%;
+  background-color: #fc238c98;
+  color: white;
+  margin-top: 20px;
+  border: rgba(252, 35, 141, 1);
+}
+
+.btn-success::after,
+.btn-success:hover {
+  background-color: rgba(252, 35, 141, 1);
+}
