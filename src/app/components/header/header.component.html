@@ -36,19 +36,28 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
-    <span class="messages" *ngIf="movies.length != 0">
-      <button
-        class="btn btn-success m-1"
-        (click)="alertService.success('Success!!', options)"
-      >
-        The movie "{{ movies[movies.length - 1].title }}" was inserted
-      </button>
-    </span>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <span *ngIf="movies.length != 0">
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="onNoClick()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <span class="messages">
+          The movie <strong>{{ movies[movies.length - 1].title }}</strong> was
+          inserted
+        </span>
+      </span>
+    </div>
+    <div class="col-lg-3"></div>
   </div>
 </div>
 
-<ngb-alert type="custom" [dismissible]="false"
-  ><strong>Whoa!</strong> This is a custom alert.</ngb-alert
->
 <router-outlet></router-outlet>
