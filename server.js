@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const Movies = require("./backend/models/movies");
+const Movie = require("./backend/models/movie");
 
 const dbConfig = require("./backend/config/db.config.js");
 
@@ -48,9 +48,42 @@ mongoose
     process.exit();
   });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to our backend application." });
+//api
+app.post("/api/movie", (req, res, next) => {
+  const movie = new Movie({
+    title: req.body.title,
+    file: req.body.file,
+    direction: req.body.direction,
+    year: req.body.year,
+    country: req.body.country,
+    duration: req.body.duration,
+    cast: {
+      name1: req.body.name1,
+      name2: req.body.name2,
+    },
+  });
+
+  console.log(movie);
+  movie.save();
+
+  res.status(201).json({
+    message: "Movie added",
+  });
+});
+
+app.get("/api/movies", (req, res, next) => {
+  Movie.find()
+    .then((documents) => {
+      res.status(200).json({
+        message: "Movies sent",
+        movies: documents,
+      });
+    })
+    .catch(() => {
+      res.status(201).json({
+        message: "There was an error",
+      });
+    });
 });
 
 // set port, listen for requests
