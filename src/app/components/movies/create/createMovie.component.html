@@ -1,45 +1,118 @@
 <div class="container margin-top">
-    <h1>Add a  <code> Movie</code></h1>
-<form class="row g-3" #createMovieForm="ngForm" (submit)=onMovieCreate(createMovieForm)>
+  <h1>Add a <code> Movie</code></h1>
+  <form
+    class="row g-3"
+    #createMovieForm="ngForm"
+    (submit)="onMovieCreate(createMovieForm)"
+  >
     <div class="col-sm-6">
-      <br>
+      <br />
       <label class="">Title</label>
-      <input class="form-control form-control-lg" type="text" placeholder=""  name="title"  ngModel #title="ngModel"aria-label=".form-control-lg example">
-      <br>
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        name="title"
+        ngModel
+        #title="ngModel"
+        required
+        aria-label=".form-control-lg example"
+      />
+      <div [hidden]="title.valid || title.pristine">Title is required</div>
+      <br />
       <label class="">Poster</label>
       <div class="mb-3">
         <div class="input-group mb-3">
-          
           <div class="custom-file">
-            <input type="file" class="custom-file-input" ngModel #file="ngModel" name="file">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            <input
+              type="file"
+              class="custom-file-input"
+              ngModel
+              #file="ngModel"
+              name="file"
+            />
+            <label class="custom-file-label" for="inputGroupFile01"
+              >Choose file</label
+            >
           </div>
         </div>
       </div>
       <label>Directed by</label>
-      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #direction="ngModel" name="direction"
-      aria-label=".form-control-lg example">
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        ngModel
+        #direction="ngModel"
+        name="direction"
+        required
+        aria-label=".form-control-lg example"
+      />
+      <div [hidden]="direction.valid || direction.pristine">
+        Direction is required
+      </div>
       <label>Year</label>
-      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #year="ngModel" name="year"
-      aria-label=".form-control-lg example">
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        ngModel
+        #year="ngModel"
+        name="year"
+        required
+        aria-label=".form-control-lg example"
+      />
     </div>
+    <div [hidden]="year.valid || year.pristine">Year is required</div>
     <div class="col-sm-6">
-      <br>
+      <br />
       <label>Country</label>
-      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #country="ngModel" name="country" aria-label=".form-control-lg example">
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        ngModel
+        #country="ngModel"
+        name="country"
+        aria-label=".form-control-lg example"
+      />
       <label>Duration</label>
-      <input class="form-control form-control-lg" type="text" placeholder=""  ngModel #duration="ngModel" name="duration" aria-label=".form-control-lg example">
-      <br>
-      <label><code>Cast</code></label><br>
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        ngModel
+        #duration="ngModel"
+        name="duration"
+        aria-label=".form-control-lg example"
+      />
+      <br />
+      <label><code>Cast</code></label
+      ><br />
       <label>Name</label>
-      <input class="form-control form-control-lg" type="text" placeholder="" ngModel #act1="ngModel" name="name1" aria-label=".form-control-lg example">
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        ngModel
+        #act1="ngModel"
+        name="name1"
+        aria-label=".form-control-lg example"
+      />
       <label>Name</label>
-      <input class="form-control form-control-lg" type="text" placeholder="" ngModel #act2="ngModel" name="name2" aria-label=".form-control-lg example">
-      <br>
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        placeholder=""
+        ngModel
+        #act2="ngModel"
+        name="name2"
+        aria-label=".form-control-lg example"
+      />
+      <br />
       <code>Add More</code>
-   </div>
+    </div>
 
-   <button class="btn btn-primary maincolor">Add</button>
+    <button class="btn btn-primary maincolor">Add</button>
   </form>
-
 </div>
