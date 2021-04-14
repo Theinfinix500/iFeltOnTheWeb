@@ -15,7 +15,7 @@ export class CreateMovieComponent {
 
   onMovieCreate(form: NgForm) {
     if (form.invalid) {
-      alert("inavalid");
+      return;
     }
     const movie: Movie = {
       title: form.value.title,
