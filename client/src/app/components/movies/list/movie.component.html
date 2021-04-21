@@ -1,10 +1,15 @@
-
 <div class="container">
-  <div class="row submenu" >
-    <div class="col-sm  d-flex flex-row-reverse ">
+  <div class="row submenu">
+    <div class="col-sm d-flex flex-row-reverse">
       <ul class="nav">
         <li class="nav-item">
-          <button type="button" class="btn btn-primary maincolor" routerLink="createMovie">Add Movie</button>
+          <button
+            type="button"
+            class="btn btn-primary maincolor"
+            routerLink="createMovie"
+          >
+            Add Movie
+          </button>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="/edit">Edit</a>
@@ -16,45 +21,44 @@
     </div>
   </div>
 </div>
-
-
-<div class="container">
-    <h1>Cashback</h1>
-    <div class="row">
+<div *ngIf="movies.length > 0">
+  <div *ngFor="let movie of movies">
+    <div class="container">
+      <h1>{{ movie.title }}</h1>
+      <div class="row">
         <div class="col-sm-6">
           <div class="card transparentCard align-items-center">
             <div class="card-body">
-                <img src="../../../assets/cashback.jpg"  class="imgFit" alt="">
-                   
+              <!-- <img src="../../../assets/cashback.jpg" class="imgFit" alt="" /> -->
             </div>
           </div>
         </div>
+
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-            
               <small>
-            <code>Directed by:</code> Sean Ellis <br>
-            <code>Written by:</code> Sean Ellis<br>
-            <code> Year:</code> 2004<br>
-            <code>Country:</code> United Kingdom<br>
-            <code> Languages:</code> English, Spanish<br>
-            <code>Running time:</code> 102 min<br>
-            <br>
-            <code> Cast:</code> <br>
-            
-            <b> Sean Biggerstaff</b> as Ben Willis<br>
-            <b> Emilia Fox </b> as Sharon Pintey<br>
-            <b>Shaun Evans</b> as Sean Higgins<br>
-            <b>Michelle Ryan</b> as Suzy<br>
-          </small>
-          <br>
-          <button type="button" class="btn btn-primary btn-sm maincolor">Edit Movie</button>
+                <code>Directed by:</code> {{ movie.direction }} <br />
+                <code>Written by:</code> {{ movie.direction }}<br />
+                <code> Year:</code> {{ movie.year }}<br />
+                <code>Country:</code> {{ movie.country }}<br />
+                <code>Running time:</code> {{ movie.duration }}<br />
+                <br />
+                <code> Cast:</code> <br />
+
+                {{ movie.cast.name1 }}<br />
+                {{ movie.cast.name2 }}<br />
+              </small>
+              <br />
+              <button type="button" class="btn btn-primary btn-sm maincolor">
+                Edit Movie
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </div>
-
 
 <router-outlet></router-outlet>

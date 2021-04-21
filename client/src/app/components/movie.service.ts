@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Movie } from "./models/movie.model";
 import { Emotions } from "./models/emotions";
 import { BehaviorSubject } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
 export class MoviesService {
@@ -16,10 +18,18 @@ export class MoviesService {
     { emotion: "anger" },
   ];
 
-  constructor() {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   getMovies() {
-    return [...this.movies];
+    this.httpClient
+      .get<{ message: string; movies: Movie[] }>(
+        "http://localhost:8080/api/movies"
+      )
+      .subscribe((postData) => {
+        this.movies = postData.movies;
+        // console.log(this.movies);
+        this.moviesUpdated.next([...this.movies]);
+      });
   }
 
   getEmotions() {
@@ -27,8 +37,10 @@ export class MoviesService {
   }
 
   addMovie(movie: Movie) {
-    this.movies.push(movie);
-    this.moviesUpdated.next([...this.movies]);
+    console.log("movie service addMovie", movie);
+    this.httpClient
+      .post<Movie>("http://localhost:8080/api/movie", movie)
+      .subscribe((responseData) => this.router.navigate(["/"]));
   }
 
   getMoviesUpdateListener() {

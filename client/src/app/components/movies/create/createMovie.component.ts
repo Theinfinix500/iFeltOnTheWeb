@@ -17,6 +17,8 @@ export class CreateMovieComponent {
     if (form.invalid) {
       return;
     }
+
+    console.log("form value", form.value);
     const movie: Movie = {
       title: form.value.title,
       file: form.value.file,
@@ -30,6 +32,7 @@ export class CreateMovieComponent {
       },
     };
 
+    console.log("create movie", movie);
     this.moviesService.addMovie(movie);
     // console.log("onMovieCreate",this.moviesService.addMovie(movie))
     this.router.navigate(["/home"]);

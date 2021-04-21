@@ -9,11 +9,24 @@ const dbConfig = require("./backend/config/db.config.js");
 const app = express();
 
 //camada cors - acesso via angular
-var corsOptions = {
-  origin: "http://localhost:4200/",
+let corsOptions = {
+  origin: "http://localhost:4200",
 };
 
-app.use(cors(corsOptions));
+//camada mongoose
+mongoose
+  // .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(`mongodb+srv://${dbConfig.HOST}/${dbConfig.DB}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Successfully connect to MongoDB.");
+  })
+  .catch((err) => {
+    console.error("Connection error", err);
+    process.exit();
+  });
 
 //camada de configuração dos pedidos
 app.use((req, res, next) => {
@@ -33,23 +46,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded());
 
-//camada mongoose
-mongoose
-  // .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-  .connect(`mongodb+srv://${dbConfig.HOST}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Successfully connect to MongoDB.");
-  })
-  .catch((err) => {
-    console.error("Connection error", err);
-    process.exit();
-  });
-
-//api
-app.post("/api/movie", (req, res, next) => {
+app.post("/api/movie", cors(corsOptions), (req, res, next) => {
   const movie = new Movie({
     title: req.body.title,
     file: req.body.file,
@@ -58,22 +55,26 @@ app.post("/api/movie", (req, res, next) => {
     country: req.body.country,
     duration: req.body.duration,
     cast: {
-      name1: req.body.name1,
-      name2: req.body.name2,
+      name1: req.body.cast.name1,
+      name2: req.body.cast.name2,
     },
   });
-
   console.log(movie);
-  movie.save();
 
-  res.status(201).json({
-    message: "Movie added",
-  });
+  movie
+    .save()
+    .then(
+      res.status(201).json({
+        message: "Movie added",
+      })
+    )
+    .catch();
 });
 
 app.get("/api/movies", (req, res, next) => {
   Movie.find()
     .then((documents) => {
+      console.log("getMovies server", documents);
       res.status(200).json({
         message: "Movies sent",
         movies: documents,
