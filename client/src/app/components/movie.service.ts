@@ -26,6 +26,7 @@ export class MoviesService {
         "http://localhost:8080/api/movies"
       )
       .subscribe((postData) => {
+        console.log(postData.message);
         this.movies = postData.movies;
         // console.log(this.movies);
         this.moviesUpdated.next([...this.movies]);
