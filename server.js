@@ -34,19 +34,27 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 //camada mongoose
+// mongoose
+//   .connect(`mongodb+srv://${dbConfig.HOST}/${dbConfig.DB}`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("Successfully connect to MongoDB.");
+//   })
+//   .catch((err) => {
+//     console.error("Connection error", err);
+//     process.exit();
+//   });
+
 mongoose
-  // .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-  .connect(`mongodb+srv://${dbConfig.HOST}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Successfully connect to MongoDB.");
-  })
-  .catch((err) => {
-    console.error("Connection error", err);
-    process.exit();
-  });
+  .connect(
+    "mongodb://localhost:t27017/ifelt",
+    { useNewUrlParser: true },
+    { useUnifiedTopology: true }
+  )
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.log(error));
 
 //api
 app.post("/api/movie", (req, res, next) => {
