@@ -39,7 +39,7 @@ export class MoviesService {
   addMovie(movie: Movie) {
     console.log("movie service addMovie", movie);
     this.httpClient
-      .post<Movie>("http://localhost:8080/api/movie", movie)
+      .post<Movie>("http://localhost:8080/api/movies", movie)
       .subscribe((responseData) => this.router.navigate(["/"]));
   }
 
