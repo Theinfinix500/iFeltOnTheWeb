@@ -37,13 +37,20 @@ export class MoviesService {
   }
 
   addMovie(movie: Movie) {
-    console.log("movie service addMovie", movie);
+    // console.log("movie service", movie);
     this.httpClient
       .post<Movie>("http://localhost:8080/api/movies", movie)
-      .subscribe((responseData) => this.router.navigate(["/"]));
+      .subscribe((responseData) => {
+        console.log("responseData", responseData);
+        this.router.navigate(["/"]);
+      });
   }
 
   getMoviesUpdateListener() {
     return this.moviesUpdated.asObservable();
+  }
+
+  getMovie(id: number) {
+    return this.httpClient.get<Movie>("http://localhost:8080/api/movies/" + id);
   }
 }

@@ -1,125 +1,127 @@
-<div class="container margin-top">
-  <h1>Add a <code> Movie</code></h1>
-  <form
-    class="row g-3"
-    #createMovieForm="ngForm"
-    (submit)="onMovieCreate(createMovieForm)"
-  >
-    <div class="row">
-      <div class="col-sm-6">
-        <br />
-        <label class=""
-          >Title <code><sup>*</sup></code></label
-        >
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          name="title"
-          ngModel
-          #title="ngModel"
-          required
-        />
-        <div
-          [hidden]="title.valid || title.pristine"
-          class="alert alert-danger"
-        >
-          Title is required
-        </div>
-        <br />
-        <label class="">Poster</label>
-        <div class="mb-3">
-          <div class="input-group mb-3">
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                ngModel
-                #file="ngModel"
-                name="file"
-              />
-              <label class="custom-file-label" for="inputGroupFile01"
-                >Choose file</label
-              >
+<div>
+  <div class="container margin-top">
+    <h1>Add a <code> Movie</code></h1>
+    <form
+      class="row g-3"
+      #createMovieForm="ngForm"
+      (submit)="onMovieCreate(createMovieForm)"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <br />
+          <label class=""
+            >Title <code><sup>*</sup></code></label
+          >
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            name="title"
+            [ngModel]="movie?.title"
+            #title="ngModel"
+            required
+          />
+          <div
+            [hidden]="title.valid || title.pristine"
+            class="alert alert-danger"
+          >
+            Title is required
+          </div>
+          <br />
+          <label class="">Poster</label>
+          <div class="mb-3">
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  ngModel
+                  #file="ngModel"
+                  name="file"
+                />
+                <label class="custom-file-label" for="inputGroupFile01"
+                  >Choose file</label
+                >
+              </div>
             </div>
           </div>
+          <label
+            >Directed by <code><sup>*</sup></code></label
+          >
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            [ngModel]="movie?.direction"
+            #direction="ngModel"
+            name="direction"
+            required
+          />
+          <div [hidden]="direction.valid || direction.pristine">
+            Direction is required
+          </div>
+          <label
+            >Year <code><sup>*</sup></code></label
+          >
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            [ngModel]="movie?.year"
+            #year="ngModel"
+            name="year"
+            required
+            minlength="4"
+            maxlength="4"
+          />
+          <div [hidden]="year.valid || year.pristine">Year is required</div>
         </div>
-        <label
-          >Directed by <code><sup>*</sup></code></label
-        >
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          ngModel
-          #direction="ngModel"
-          name="direction"
-          required
-        />
-        <div [hidden]="direction.valid || direction.pristine">
-          Direction is required
+        <div class="col-sm-6">
+          <br />
+          <label>Country</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            [ngModel]="movie?.country"
+            #country="ngModel"
+            name="country"
+          />
+          <label>Duration</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            [ngModel]="movie?.cast.duration"
+            #duration="ngModel"
+            name="duration"
+          />
+          <br />
+          <label><code>Cast</code></label
+          ><br />
+          <label>Name</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            [ngModel]="movie?.cast.name1"
+            #act1="ngModel"
+            name="name1"
+          />
+          <label>Name</label>
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder=""
+            [ngModel]="movie?.cast.name2"
+            #act2="ngModel"
+            name="name2"
+          />
+          <br />
+          <code>Add More</code>
         </div>
-        <label
-          >Year <code><sup>*</sup></code></label
-        >
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          ngModel
-          #year="ngModel"
-          name="year"
-          required
-          minlength="4"
-          maxlength="4"
-        />
-        <div [hidden]="year.valid || year.pristine">Year is required</div>
       </div>
-      <div class="col-sm-6">
-        <br />
-        <label>Country</label>
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          ngModel
-          #country="ngModel"
-          name="country"
-        />
-        <label>Duration</label>
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          ngModel
-          #duration="ngModel"
-          name="duration"
-        />
-        <br />
-        <label><code>Cast</code></label
-        ><br />
-        <label>Name</label>
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          ngModel
-          #act1="ngModel"
-          name="name1"
-        />
-        <label>Name</label>
-        <input
-          class="form-control form-control-lg"
-          type="text"
-          placeholder=""
-          ngModel
-          #act2="ngModel"
-          name="name2"
-        />
-        <br />
-        <code>Add More</code>
-      </div>
-    </div>
-    <button class="btn btn-primary maincolor">Add</button>
-  </form>
+      <button class="btn btn-primary maincolor">Add</button>
+    </form>
+  </div>
 </div>
