@@ -24,7 +24,7 @@ const app = express();
 
 mongoose
   .connect(
-    "mongodb://localhost:t27017/ifelt",
+    "mongodb://localhost:27017/ifelt",
     { useNewUrlParser: true },
     { useUnifiedTopology: true }
   )

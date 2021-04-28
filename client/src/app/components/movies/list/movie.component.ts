@@ -23,7 +23,7 @@ export class MovieComponent implements OnInit {
     this.MoviesSub = this.moviesService
       .getMoviesUpdateListener()
       .subscribe((movies: Movie[]) => {
-        console.log("inside get", movies);
+        // console.log("inside get", movies);
         this.movies = movies;
       });
   }

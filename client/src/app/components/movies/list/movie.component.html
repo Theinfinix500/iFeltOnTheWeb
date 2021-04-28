@@ -6,7 +6,7 @@
           <button
             type="button"
             class="btn btn-primary maincolor"
-            routerLink="createMovie"
+            routerLink="../create"
           >
             Add Movie
           </button>
@@ -50,7 +50,12 @@
                 {{ movie.cast.name2 }}<br />
               </small>
               <br />
-              <button type="button" class="btn btn-primary btn-sm maincolor">
+              <button
+                type="button"
+                class="btn btn-primary btn-sm maincolor"
+                routerLink="../edit/:"
+                {{movie.id}}
+              >
                 Edit Movie
               </button>
             </div>

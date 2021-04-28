@@ -1,7 +1,8 @@
 import { Router } from "@angular/router";
 import { MoviesService } from "./../../movie.service";
 import { NgForm } from "@angular/forms";
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 
 import { Movie } from "./../../models/movie.model";
 
@@ -10,8 +11,20 @@ import { Movie } from "./../../models/movie.model";
   templateUrl: "./createMovie.component.html",
   styleUrls: ["./createMovie.component.css"],
 })
-export class CreateMovieComponent {
-  constructor(public moviesService: MoviesService, private router: Router) {}
+export class CreateMovieComponent implements OnInit {
+  private mode = "create";
+
+  constructor(
+    public moviesService: MoviesService,
+    private router: Router,
+    public route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((data) => {
+      console.log(data);
+    });
+  }
 
   onMovieCreate(form: NgForm) {
     if (form.invalid) {
